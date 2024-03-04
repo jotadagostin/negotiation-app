@@ -1,0 +1,8 @@
+{
+  "compilerOptions": {
+    "outDir": "dist/js", //compilar em js para a pasta dist
+    "target": "ES6",
+    "noEmitOnError": true
+  },
+  "include": ["app/**/*"]
+}
