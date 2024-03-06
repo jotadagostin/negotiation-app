@@ -1,3 +1,4 @@
+//Negotiation[] = Array<Negotiation>
 export class Negotiations {
     constructor() {
         this.negotiation = [];
@@ -6,6 +7,6 @@ export class Negotiations {
         this.negotiation.push(negotiation);
     }
     list() {
-        return [...this.negotiation];
+        return this.negotiation;
     }
 }

@@ -1,8 +1,8 @@
 export class Negotiation {
-    constructor(day, quantity, amount) {
-        this._day = day;
-        this._quantity = quantity;
-        this._amount = amount;
+    constructor(_day, _quantity, _amount) {
+        this._day = _day;
+        this._quantity = _quantity;
+        this._amount = _amount;
     }
     get day() {
         return this._day;

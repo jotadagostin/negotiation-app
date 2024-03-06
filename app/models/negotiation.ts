@@ -1,13 +1,9 @@
 export class Negotiation {
-  private _day: Date;
-  private _quantity: number;
-  private _amount: number;
-
-  constructor(day: Date, quantity: number, amount: number) {
-    this._day = day;
-    this._quantity = quantity;
-    this._amount = amount;
-  }
+  constructor(
+    private _day: Date,
+    private _quantity: number,
+    private _amount: number
+  ) {}
 
   get day(): Date {
     return this._day;
