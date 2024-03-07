@@ -8,14 +8,15 @@ export class NegotiationController {
         this.inputAmount = document.querySelector("#valor");
     }
     add() {
-        const negotiation = this.createNegociation();
+        const negotiation = this.createNegotiation();
+        negotiation.day.setDate(12);
         this.negotiations.add(negotiation);
         this.negotiations.list();
         console.log(this.negotiations.list());
         this.add;
         this.clearForm();
     }
-    createNegociation() {
+    createNegotiation() {
         const exp = /-/g;
         const day = new Date(this.inputDay.value.replace(exp, ","));
         const quantity = parseInt(this.inputQuantity.value);
