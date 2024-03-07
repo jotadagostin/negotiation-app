@@ -11,9 +11,7 @@ export class NegotiationController {
         const negotiation = this.createNegotiation();
         negotiation.day.setDate(12);
         this.negotiations.add(negotiation);
-        this.negotiations.list();
         console.log(this.negotiations.list());
-        this.add;
         this.clearForm();
     }
     createNegotiation() {
