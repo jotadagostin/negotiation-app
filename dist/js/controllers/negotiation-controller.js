@@ -7,6 +7,8 @@ export class NegotiationController {
         this.negotiations = new Negotiations();
         this.negotiationsView = new NegotiationView("#negotiationsView");
         this.messageView = new MessageView("#messageView");
+        this.SATURDAY = 6;
+        this.SUNDAY = 0;
         this.inputDay = document.querySelector("#data");
         this.inputQuantity = document.querySelector("#quantidade");
         this.inputAmount = document.querySelector("#valor");
@@ -14,10 +16,16 @@ export class NegotiationController {
     }
     add() {
         const negotiation = this.createNegotiation();
-        negotiation.day.setDate(12);
+        if (!this.isItUseDay(negotiation.day)) {
+            this.messageView.update("just negotiations in use days are acceptable");
+            return;
+        }
         this.negotiations.add(negotiation);
         this.updateView();
         this.clearForm();
+    }
+    isItUseDay(day) {
+        return day.getDay() > this.SUNDAY && day.getDay() < this.SATURDAY;
     }
     createNegotiation() {
         const exp = /-/g;
