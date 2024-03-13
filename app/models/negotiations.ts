@@ -4,11 +4,11 @@ import { Negotiation } from "./negotiation.js";
 export class Negotiations {
   private negotiation: Negotiation[] = [];
 
-  add(negotiation: Negotiation) {
+  public add(negotiation: Negotiation) {
     this.negotiation.push(negotiation);
   }
 
-  list(): readonly Negotiation[] {
+  public list(): readonly Negotiation[] {
     return this.negotiation;
   }
 }
