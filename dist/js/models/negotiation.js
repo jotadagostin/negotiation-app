@@ -11,5 +11,12 @@ export class Negotiation {
         const day = new Date(this._day.getTime());
         return day;
     }
+    static createOf(dayString, quantityString, amountString) {
+        const exp = /-/g;
+        const day = new Date(dayString.replace(exp, ","));
+        const quantity = parseInt(quantityString);
+        const amount = parseFloat(amountString);
+        return new Negotiation(day, quantity, amount);
+    }
 }
 //_ underlined before leaving the data private and private so that it cannot be changed without access.
