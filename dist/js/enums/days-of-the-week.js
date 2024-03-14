@@ -1,4 +1,3 @@
-//Enumerations:
 export var DayOfTheWeek;
 (function (DayOfTheWeek) {
     DayOfTheWeek[DayOfTheWeek["SUNDAY"] = 0] = "SUNDAY";

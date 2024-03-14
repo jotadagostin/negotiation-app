@@ -19,4 +19,3 @@ export class Negotiation {
         return new Negotiation(day, quantity, amount);
     }
 }
-//_ underlined before leaving the data private and private so that it cannot be changed without access.
