@@ -1,3 +1,4 @@
+import { DayOfTheWeek } from "../enums/days-of-the-week.js";
 import { Negotiation } from "../models/negotiation.js";
 import { Negotiations } from "../models/negotiations.js";
 import { MessageView } from "../views/message-view.js";
@@ -32,7 +33,9 @@ export class NegotiationController {
   }
 
   private isItUseDay(day: Date) {
-    return day.getDay() > this.SUNDAY && day.getDay() < this.SATURDAY;
+    return (
+      day.getDay() > DayOfTheWeek.SUNDAY && day.getDay() < DayOfTheWeek.SATURDAY
+    );
   }
 
   private createNegotiation(): Negotiation {
