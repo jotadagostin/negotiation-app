@@ -1,4 +1,4 @@
-//Enumerations:
+//Enumerations: for the days of the week
 
 export enum DayOfTheWeek {
   SUNDAY = 0,
