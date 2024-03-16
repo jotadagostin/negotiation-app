@@ -1,3 +1,10 @@
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+import { logTimeExecution } from "../decorators/loggin-timpe-execution.js";
 import { DayOfTheWeek } from "../enums/days-of-the-week.js";
 import { Negotiation } from "../models/negotiation.js";
 import { Negotiations } from "../models/negotiations.js";
@@ -14,7 +21,6 @@ export class NegotiationController {
         this.negotiationsView.update(this.negotiations);
     }
     add() {
-        const t1 = performance.now();
         const negotiation = Negotiation.createOf(this.inputDay.value, this.inputQuantity.value, this.inputAmount.value);
         if (!this.isItUseDay(negotiation.day)) {
             this.messageView.update("just negotiations in use days are acceptable");
@@ -23,8 +29,6 @@ export class NegotiationController {
         this.negotiations.add(negotiation);
         this.updateView();
         this.clearForm();
-        const t2 = performance.now();
-        console.log(`time to execut add metodo: ${(t2 - t1) / 1000} seconds`);
     }
     isItUseDay(day) {
         return (day.getDay() > DayOfTheWeek.SUNDAY && day.getDay() < DayOfTheWeek.SATURDAY);
@@ -40,3 +44,6 @@ export class NegotiationController {
         this.messageView.update("Trading added sucessfully");
     }
 }
+__decorate([
+    logTimeExecution()
+], NegotiationController.prototype, "add", null);
