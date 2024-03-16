@@ -22,6 +22,7 @@ export class NegotiationController {
   }
 
   public add(): void {
+    const t1 = performance.now();
     const negotiation = Negotiation.createOf(
       this.inputDay.value,
       this.inputQuantity.value,
@@ -34,6 +35,8 @@ export class NegotiationController {
     this.negotiations.add(negotiation);
     this.updateView();
     this.clearForm();
+    const t2 = performance.now();
+    console.log(`time to execut add metodo: ${(t2 - t1) / 1000} seconds`);
   }
 
   private isItUseDay(day: Date) {
