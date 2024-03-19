@@ -1,3 +1,4 @@
+import { inspect } from "../decorators/inspect.js";
 import { logTimeExecution } from "../decorators/loggin-time-execution.js";
 import { DayOfTheWeek } from "../enums/days-of-the-week.js";
 import { Negotiation } from "../models/negotiation.js";
@@ -22,6 +23,7 @@ export class NegotiationController {
     this.negotiationsView.update(this.negotiations);
   }
 
+  @inspect
   @logTimeExecution()
   public add(): void {
     const negotiation = Negotiation.createOf(
