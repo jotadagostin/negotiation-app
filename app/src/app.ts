@@ -12,3 +12,12 @@ if (form) {
     " it was not possible to start the aplication. Check if form exist"
   );
 }
+
+const importButton = document.querySelector("#botao-importa");
+if (importButton) {
+  importButton.addEventListener("click", () => {
+    controller.importDate();
+  });
+} else {
+  throw Error("Button was not founded!");
+}

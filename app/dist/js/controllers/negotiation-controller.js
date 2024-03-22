@@ -28,6 +28,9 @@ export class NegotiationController {
         this.updateView();
         this.clearForm();
     }
+    importDate() {
+        alert("hi");
+    }
     isItUseDay(day) {
         return (day.getDay() > DayOfTheWeek.SUNDAY && day.getDay() < DayOfTheWeek.SATURDAY);
     }
