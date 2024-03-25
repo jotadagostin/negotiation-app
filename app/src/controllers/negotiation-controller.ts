@@ -1,6 +1,7 @@
 import { inspect } from "../decorators/inspect.js";
 import { logTimeExecution } from "../decorators/loggin-time-execution.js";
 import { DayOfTheWeek } from "../enums/days-of-the-week.js";
+import { TodayNegotiations } from "../interfaces/todayNegotiation.js";
 import { Negotiation } from "../models/negotiation.js";
 import { Negotiations } from "../models/negotiations.js";
 import { MessageView } from "../views/message-view.js";
@@ -35,8 +36,20 @@ export class NegotiationController {
     this.clearForm();
   }
 
-  importDate(): void {
-    alert("hi");
+  public importDate(): void {
+    fetch("http://localhost:3000/dados")
+      .then((res) => res.json())
+      .then((todayDate: TodayNegotiations[]) => {
+        return todayDate.map((dado) => {
+          return new Negotiation(new Date(), dado.vezes, dado.montante);
+        });
+      })
+      .then((TodayNegotiations) => {
+        for (let negotiation of TodayNegotiations) {
+          this.negotiations.add(negotiation);
+        }
+        this.negotiationsView.update(this.negotiations);
+      });
   }
 
   private isItUseDay(day: Date) {
