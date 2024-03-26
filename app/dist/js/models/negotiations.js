@@ -1,11 +1,14 @@
 export class Negotiations {
     constructor() {
-        this.negotiation = [];
+        this.negotiations = [];
     }
     add(negotiation) {
-        this.negotiation.push(negotiation);
+        this.negotiations.push(negotiation);
     }
     list() {
-        return this.negotiation;
+        return this.negotiations;
+    }
+    toText() {
+        return JSON.stringify(this.negotiations, null, 2);
     }
 }

@@ -1,18 +1,11 @@
-export class Negotiation {
+import { Printing } from "../utils/printing.js";
+
+export class Negotiation implements Printing {
   constructor(
     private readonly _day: Date,
     public readonly quantity: number,
     public readonly amount: number
   ) {}
-
-  get volume(): number {
-    return this.quantity * this.amount;
-  }
-
-  get day(): Date {
-    const day = new Date(this._day.getTime());
-    return day;
-  }
 
   public static createOf(
     dayString: string,
@@ -24,6 +17,21 @@ export class Negotiation {
     const quantity = parseInt(quantityString);
     const amount = parseFloat(amountString);
     return new Negotiation(day, quantity, amount);
+  }
+
+  get volume(): number {
+    return this.quantity * this.amount;
+  }
+
+  get day(): Date {
+    const day = new Date(this._day.getTime());
+    return day;
+  }
+
+  public toText(): string {
+    return `Day: ${this.day},
+    Quantity: ${this.quantity},
+    Amount: ${this.amount}`;
   }
 }
 

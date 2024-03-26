@@ -1,15 +1,20 @@
+import { domInjector } from "../decorators/dom-injector.js";
 import { inspect } from "../decorators/inspect.js";
 import { logTimeExecution } from "../decorators/loggin-time-execution.js";
 import { DayOfTheWeek } from "../enums/days-of-the-week.js";
 import { Negotiation } from "../models/negotiation.js";
 import { Negotiations } from "../models/negotiations.js";
 import { NegotiationService } from "../services/negotiations-service.js";
+import { toPrint } from "../utils/toprint.js";
 import { MessageView } from "../views/message-view.js";
 import { NegotiationView } from "../views/negotiations-views.js";
 
 export class NegotiationController {
+  @domInjector("#data")
   private inputDay: HTMLInputElement;
+  @domInjector("#quantidade")
   private inputQuantity: HTMLInputElement;
+  @domInjector("#valor")
   private inputAmount: HTMLInputElement;
   private negotiations = new Negotiations();
   private negotiationsView = new NegotiationView("#negotiationsView");
@@ -32,7 +37,9 @@ export class NegotiationController {
       this.messageView.update("just negotiations in use days are acceptable");
       return;
     }
+
     this.negotiations.add(negotiation);
+    toPrint(negotiation, this.negotiations);
     this.updateView();
     this.clearForm();
   }
