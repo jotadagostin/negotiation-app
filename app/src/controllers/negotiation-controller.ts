@@ -45,12 +45,22 @@ export class NegotiationController {
   }
 
   public importDate(): void {
-    this.negotiationService.obteinNegotiation().then((TodayNegotiations) => {
-      for (let negotiation of TodayNegotiations) {
-        this.negotiations.add(negotiation);
-      }
-      this.negotiationsView.update(this.negotiations);
-    });
+    this.negotiationService
+      .obteinNegotiation()
+      .then((todayNegotiations) => {
+        return todayNegotiations.filter((todayNegotiations) => {
+          return !this.negotiations
+            .list()
+            .some((negotiation) => negotiation.isIgual(todayNegotiations));
+        });
+      })
+
+      .then((todayNegotiations) => {
+        for (let negotiation of todayNegotiations) {
+          this.negotiations.add(negotiation);
+        }
+        this.negotiationsView.update(this.negotiations);
+      });
   }
 
   private isItUseDay(day: Date) {

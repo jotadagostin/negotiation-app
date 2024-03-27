@@ -23,4 +23,9 @@ export class Negotiation {
     Quantity: ${this.quantity},
     Amount: ${this.amount}`;
     }
+    isIgual(negotiation) {
+        return (this.day.getDate() === negotiation.day.getDate() &&
+            this.day.getMonth() === negotiation.day.getMonth() &&
+            this.day.getFullYear() === negotiation.day.getFullYear());
+    }
 }

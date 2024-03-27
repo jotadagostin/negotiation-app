@@ -1,6 +1,7 @@
+import { toCompare } from "../interfaces/toCompare.js";
 import { Printing } from "../utils/printing.js";
 
-export class Negotiation implements Printing {
+export class Negotiation implements Printing, toCompare<Negotiation> {
   constructor(
     private readonly _day: Date,
     public readonly quantity: number,
@@ -32,6 +33,14 @@ export class Negotiation implements Printing {
     return `Day: ${this.day},
     Quantity: ${this.quantity},
     Amount: ${this.amount}`;
+  }
+
+  public isIgual(negotiation: Negotiation): boolean {
+    return (
+      this.day.getDate() === negotiation.day.getDate() &&
+      this.day.getMonth() === negotiation.day.getMonth() &&
+      this.day.getFullYear() === negotiation.day.getFullYear()
+    );
   }
 }
 
