@@ -1,7 +1,6 @@
-import { toCompare } from "../interfaces/toCompare.js";
-import { Printing } from "../utils/printing.js";
+import { Model } from "../interfaces/model.js";
 
-export class Negotiation implements Printing, toCompare<Negotiation> {
+export class Negotiation implements Model<Negotiation> {
   constructor(
     private readonly _day: Date,
     public readonly quantity: number,

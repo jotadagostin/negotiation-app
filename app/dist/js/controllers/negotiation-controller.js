@@ -77,3 +77,4 @@ __decorate([
     inspect,
     logTimeExecution()
 ], NegotiationController.prototype, "add", null);
+//# sourceMappingURL=negotiation-controller.js.map

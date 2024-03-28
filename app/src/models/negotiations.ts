@@ -1,9 +1,8 @@
-import { toCompare } from "../interfaces/toCompare.js";
-import { Printing } from "../utils/printing.js";
+import { Model } from "../interfaces/model.js";
 import { Negotiation } from "./negotiation.js";
 
 //Negotiation[] = Array<Negotiation>
-export class Negotiations implements Printing, toCompare<Negotiations> {
+export class Negotiations implements Model<Negotiations> {
   private negotiations: Negotiation[] = [];
 
   public add(negotiation: Negotiation) {

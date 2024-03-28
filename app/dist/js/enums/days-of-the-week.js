@@ -8,3 +8,4 @@ export var DayOfTheWeek;
     DayOfTheWeek[DayOfTheWeek["FRIDAY"] = 5] = "FRIDAY";
     DayOfTheWeek[DayOfTheWeek["SATURDAY"] = 6] = "SATURDAY";
 })(DayOfTheWeek || (DayOfTheWeek = {}));
+//# sourceMappingURL=days-of-the-week.js.map

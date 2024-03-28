@@ -17,3 +17,4 @@ export function logTimeExecution(inSeconds = false) {
         return descriptor;
     };
 }
+//# sourceMappingURL=loggin-time-execution.js.map

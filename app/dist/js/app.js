@@ -19,3 +19,4 @@ if (importButton) {
 else {
     throw Error("Button was not founded!");
 }
+//# sourceMappingURL=app.js.map
